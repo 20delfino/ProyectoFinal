@@ -1,0 +1,19 @@
+{% extends 'Blog/BaseInfo.html' %}
+
+{% block titulo %}
+    {{ titulo }}
+{% endblock %}
+
+{% block subtitulo %}
+    {{ subtitulo }}
+{% endblock %}
+
+{% block content %}
+    <div style="display: flex; justify-content: center;">
+        <form action="" method="POST"  enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit">Subir Manga</button>
+        </form>
+    </div>
+{% endblock %}

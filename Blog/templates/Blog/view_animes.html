@@ -1,0 +1,30 @@
+{% extends 'Blog/BaseInfo.html' %}
+
+{% block titulo %}
+    {{ titulo }}
+{% endblock %}
+
+{% block subtitulo %}
+    {{ subtitulo }}
+{% endblock %}
+
+{% block content %}
+{% for animes in biblioteca%}
+<p>Titulo: {{animes.titulo}}</p> 
+<p>Fecha de publicacion: {{animes.fecha_pub}}</p> 
+<p>Genero: {{animes.genero}}</p> 
+<img src="{{ animes.img }}" alt="{{ animes.titulo }}">
+<button>    
+    <a 
+        href="{% url 'borrarA' animes.titulo %}">
+        Borrar Titulo 
+    </a>
+</button>
+<button>    
+    <a 
+        href="{% url 'editarA' animes.titulo %}">
+        Editar Titulo 
+    </a>
+</button>
+{% endfor%}
+{% endblock %}

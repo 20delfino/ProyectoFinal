@@ -1,0 +1,30 @@
+{% extends 'Blog/BaseInfo.html' %}
+
+{% block titulo %}
+    {{ titulo }}
+{% endblock %}
+
+{% block subtitulo %}
+    {{ subtitulo }}
+{% endblock %}
+
+{% block content %}
+{% for mangas in biblioteca%}
+<p>Titulo: {{mangas.titulo}}</p> 
+<p>Fecha de publicacion: {{mangas.fecha_pub}}</p> 
+<p>Genero: {{mangas.genero}}</p> 
+<img src="{{ mangas.img }}" alt="{{ mangas.titulo }}">
+<button>    
+    <a 
+        href="{% url 'borrarM' mangas.titulo %}">
+        Borrar Titulo 
+    </a>
+</button>
+<button>    
+    <a 
+        href="{% url 'editarM' mangas.titulo %}">
+        Editar Titulo 
+    </a>
+</button>
+{% endfor%}
+{% endblock %}

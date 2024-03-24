@@ -1,0 +1,30 @@
+{% extends 'Blog/BaseInfo.html' %}
+
+{% block titulo %}
+    {{ titulo }}
+{% endblock %}
+
+{% block subtitulo %}
+    {{ subtitulo }}
+{% endblock %}
+
+{% block content %}
+{% for videojuegos in biblioteca%}
+<p>Titulo: {{videojuegos.titulo}}</p> 
+<p>Fecha de publicacion: {{videojuegos.fecha_pub}}</p> 
+<p>Genero: {{videojuegos.genero}}</p> 
+<img src="{{ videojuegos.img }}" alt="{{ videojuegos.titulo }}">
+<button>    
+    <a 
+        href="{% url 'borrarV' videojuegos.titulo %}">
+        Borrar Titulo 
+    </a>
+</button>
+<button>    
+    <a 
+        href="{% url 'editarV' videojuegos.titulo %}">
+        Editar Titulo 
+    </a>
+</button>
+{% endfor%}
+{% endblock %}

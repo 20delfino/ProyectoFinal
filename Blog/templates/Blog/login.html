@@ -1,0 +1,17 @@
+{%extends 'Blog/Baseinicio.html'%}
+
+{%block titulo%}
+    {{titulo}}
+{%endblock%}
+
+{%block subtitulo%}
+{{subtitulo}}
+{%endblock%}
+{%block content%}
+
+<form action="" method="POST"> {%csrf_token%}
+{{formulario.as_p}}
+<button type="submit">Iniciar Sesion</button>     
+</form>
+
+{%endblock%}
